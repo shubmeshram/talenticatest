@@ -1,0 +1,146 @@
+LINUX : 
+
+1. Write a crontab that will run on each sunday at 10.10 AM.
+Ans : 10  10  *  *  0
+
+2. What are the kinds of permissions under linux and how can you change permissions and owner of any file/directory.
+Ans :  there are 3 kinds of permissions  under linux i.e Read , Write , Execute   and  we can change them by using chmod command.
+            ex :  chmod  764  file.txt     
+            to change the ownership of any file by using chown command.
+            ex : chown user:groupowner  filename 
+
+3. Write a command to find a string “red” and replace it with “blue” in particular file.
+Ans : #sed   -i   's/red/blue/g'   input.file
+
+4. Write commands to check free memory, load average, available disk.
+Ans : #free  -m  ,  #top  ,  #df  -h
+
+5. How will you check nginx process is running or not on machine? Write a command to find port number of nginx.
+Ans : #systemctl    status   nginx   ,   #ps   aux   -P  |  grep  nginx
+
+6. Write a command to check list of disks attached to machine, format the disk and mount it on any folder.
+Ans : #lsblk  ,   #df  -h  ,  #fdisk  -h
+
+
+
+
+DOCKER :
+
+1. Write commands to get list of images and list of all containers on a machine.
+Ans :  #docker  images  ls  -a  ,   #docker   ps   -a
+
+2. How will you check container logs?
+Ans : #docker  logs   ContainerName / ContainerID 
+
+3. What is the method for creating a Docker container?
+Ans : Step 1: Create a Base Container. Let's get started by creating a running container.
+           Step 2: Inspect Images.
+           Step 3: Inspect Containers.
+           Step 4: Start the Container.
+           Step 5: Modify the Running Container.
+           Step 6: Create an Image From a Container.
+           Step 7: Tag the Image.
+           Step 8: Create Images With Tags.
+          Step 9: Delete the Original Container.
+          Step 10: Look at Running Containers.
+
+4. Suppose you have 3 containers running and out of these, you wish to access one of them. How do you access a running container?
+Ans : Use docker ps to get the name of the existing container.
+           Use the command docker exec -it <container name> /bin/bash to get a bash shell in the container.
+           Generically, use docker exec -it <container name> <command> to execute whatever command you specify in the container.
+
+5. Explain Dockerfile commands.
+Ans :  FROM creates a layer from the  Docker image.
+            COPY adds files from your Docker client’s current directory.
+            RUN builds your application.
+            CMD specifies what command to run within the container.
+            ADD Copies new files, directories, or remote file URLs from <SOURCE> and adds them to the filesystem of the image at the path <DESTINATION>.
+            ENV instruction sets the environment variable <key> to the value <value>.
+            MAINTAINER instruction allows you to set the Author field of the generated images.
+
+
+
+AWS :
+
+1. Write a command to upload any file to s3 bucket.
+Ans : $aws   s3   cp  <file name>  s3://<bucket name>
+
+2. List AWS services that you worked on. Explain in brief.
+Ans : I have used S3  service to store  the objects like website, images , doccuments etc. I have used EC2 service to launch the different servers as 
+           per requirement. It can be web Server, database server. all this servers are associated with the VPC. VPC is used to create a customize network.
+           It can have different subnets like public and private, IGW , NAT, Route Tables etc. now I have used ELB to distribute the traffic across different
+           servers and balance them. With ELB i used AutoScaling to scale up and Scale down the running instances as per the incomming traffic from 
+           ELB. The Cloudwatch is used to monitor the healthcheck of the instance by setting the throughput limit. If it exceeds the the mail will be sent by
+           using SNS service. I have used RDS for storing the data into mysql database. I used EFS to share the file between two different public instances.
+           at last, I used Route53 to register the DNS and to convert the IP address to DNS.  
+
+3. How will you fix below error:
+Ans : #chmod 400 keypair.pem         and try again
+
+4.How can you convert a public subnet to private subnet?
+Ans : Yes , By removing IGW from its route table.
+
+5.Is it possible to reduce a ebs volume?
+Ans : No, if it is already attched and running.
+
+6.Which of the following is not an option in security groups?
+Ans : List  of  Users
+
+
+
+GIT : 
+
+1. What is the function of ‘GIT PUSH’ in GIT?
+Ans:  The git push command allows you to send (or push) the commits from your local branch in your local Git repository to the remote repository.
+           To be able to push to your remote repository, you must ensure that all your changes to the local repository are committed.
+           This command’s syntax is as follows :  #git push <repo name> <branch name>
+
+2. What is the purpose of branching in GIT? Write a command to create a new branch.
+Ans : In general term, the main purpose of branching (a VCS - Version Control System - feature) is to achieve code isolation.
+            You have at least one branch, which can be enough for sequential development, and is used for many tasks being recording (committed) 
+            on that same unique branch.  
+             The following command is for creating a new branch :
+             #git  branch <branch name>
+
+3. Write down the steps to push your code on specific branch.
+Ans : Step 1 : Firstly, we have to add the code/file from local computer the staging area. for that following command is used :
+                            #git  add  <file name> 
+           
+            Step 2 : Then, Commits your code from staging area to local repository. for that following command is used :
+                            #git  commit   -m   "message"
+           
+            Step 3 : Then, To push the code from local repo to remote repo to specific branch we use following command : 
+                            #git  push  <remote name >  <branch name>
+
+
+
+
+JENKINS : 
+
+1. What Are The Most Useful Plugins In Jenkins?
+Ans : 1. Build Flow 
+            2. Build Monitor
+            3. Build Name Setter
+            4. Build Pipeline
+            5. Delivery Pipeline
+
+2. How to restart jenkins from UI?
+Ans : I didn't used UI to restart jenkins. Instead I used CLI to restart.
+           to restart the jenkins using CLI by following commands :
+           
+For restarting the Jenkins You could use:
+
+  #<jenkins url>/safeRestart              :- It which allows all running jobs to complete. New jobs will remain in the queue to run after the restart is complete.
+
+  #<jenkins_url>/restart                       :- It will forces a restart without waiting for builds to complete  .
+
+
+
+
+Configuration Management / Orchestration :
+
+1. Which of Following Orchestration tool you used ?
+Ans : Kubernetes
+
+2. Which of following CM tool you used?
+Ans : Ansible
